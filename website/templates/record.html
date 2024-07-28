@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% block content%}
+<div class="col-md-6 offset-md-3">
+  <h1 class="text-center pt-2 pb-4">Customer's Info</h1>
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title text-center">
+        {{customer_record.first_name}} {{customer_record.last_name}}
+      </h5>
+    </div>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item list-group-item-action">
+          <strong>ID:</strong>
+          {{customer_record.id}}
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <strong>Email:</strong>
+          {{customer_record.email}}
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <strong>Phone:</strong>
+          {{customer_record.phone}}
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <strong>Address:</strong>
+          {{customer_record.address}}
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <strong>City:</strong>
+          {{customer_record.city}}
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <strong>State:</strong>
+          {{customer_record.state}}
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <strong>Zipcode:</strong>
+          {{customer_record.zipcode}}
+        </li>
+      </ul>
+    </div>
+    <div class="card-footer text-body-secondary text-center">
+      Created At: {{customer_record.created_at}}
+    </div>
+  </div>
+  <div class="mt-4 d-flex justify-content-between">
+    <div>
+      <a
+        href="{% url 'update_record' customer_record.id %}"
+        class="btn btn-primary"
+        >Update Record</a
+      >
+      <a href="{% url 'delete' customer_record.id %}" class="btn btn-danger"
+        >Delete</a
+      >
+    </div>
+    <a href="{% url 'home' %}" class="btn btn-outline-dark">Back</a>
+  </div>
+</div>
+
+{% endblock %}
